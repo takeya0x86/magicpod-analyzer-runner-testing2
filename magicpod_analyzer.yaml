@@ -3,9 +3,13 @@ magicpod:
     - Locoguide/Tokubai_Android
     - Locoguide/Tokubai_iOS
   exporter:
-    local:
-      outDir: ./output
-      format: json
+    bigquery:
+      project: my-project-1537896645952
+      dataset: magicpod_dashboard
+      reports:
+        - name: test_report
+          table: test_report
   lastRunStore:
-    backend: local
-    path: .magicpod_analyzer/last_run/magicpod.json
+    backend: gcs
+    project: my-project-1537896645952
+    bucket: magicpod-analyzer-last-run
