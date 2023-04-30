@@ -10,8 +10,18 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
     steps:
     - uses: actions/checkout@v3
+    - id: auth
+      name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v1
+      with:
+        workload_identity_provider: projects/159177128983/locations/global/workloadIdentityPools/magicpod-analyzer-pool/providers/magicpod-analyzer-provider
+        service_account: magicpod-analyzer-account@my-project-1537896645952.iam.gserviceaccount.com
     - name: Use Node.js LTS
       uses: actions/setup-node@v3
       with:
