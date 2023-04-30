@@ -1,0 +1,21 @@
+name: Running magicpod-analyzer
+
+on: 
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0-11 * * 1-5'
+  
+jobs:
+  cron:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js LTS
+      uses: actions/setup-node@v3
+      with:
+        node-version: 'lts/*'
+        cache: 'yarn'
+    - run: yarn install --frozen-lockfile
+    - run: yarn run magicpod-analyzer get-batch-runs -c magicpod_analyzer.yaml

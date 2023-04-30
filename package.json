@@ -1,0 +1,8 @@
+{
+  "name": "magicpod-analyzer-runner-testing",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "magicpod-analyzer": "^0.4.0"
+  }
+}
