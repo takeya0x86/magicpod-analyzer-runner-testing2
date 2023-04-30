@@ -17,5 +17,9 @@ jobs:
       with:
         node-version: 'lts/*'
         cache: 'yarn'
-    - run: yarn install --frozen-lockfile
-    - run: yarn run magicpod-analyzer get-batch-runs -c magicpod_analyzer.yaml
+    - name: Install application and dependencies
+      run: yarn install --frozen-lockfile
+    - name: Run magicpod-analyzer
+      run: yarn run magicpod-analyzer get-batch-runs -c magicpod_analyzer.yaml
+      env:
+        MAGICPOD_TOKEN: ${{ secrets.MAGICPOD_TOKEN }}
