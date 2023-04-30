@@ -23,4 +23,4 @@ jobs:
       run: yarn run magicpod-analyzer get-batch-runs -c magicpod_analyzer.yaml
       env:
         MAGICPOD_TOKEN: ${{ secrets.MAGICPOD_TOKEN }}
-        MAGICPOD_ANALYZER_DEBUG: ${{ env.MAGICPOD_ANALYZER_DEBUG }}
+        MAGICPOD_ANALYZER_DEBUG: ${{ vars.MAGICPOD_ANALYZER_DEBUG }}
